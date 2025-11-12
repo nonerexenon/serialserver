@@ -3,6 +3,7 @@
 import Serial
 
 from flask import Flask
+from waitress import serve
 
 app = Flask(__name__)
 
@@ -24,4 +25,4 @@ def route_serial():
 	return serial_today
 
 if __name__ == '__main__':
-	app.run()
+	serve(app, host="0.0.0.0", port=8080)
